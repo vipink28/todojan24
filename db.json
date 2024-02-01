@@ -1,4 +1,35 @@
 {
-    "users":[],
-    "tasks":[]
+  "users": [
+    {
+      "name": "vipin",
+      "email": "vipin@gmail.com",
+      "password": "admin",
+      "id": 1
+    },
+    {
+      "name": "aman",
+      "email": "aman@gmail.com",
+      "password": "admin",
+      "id": 2
+    },
+    {
+      "name": "Rishabh",
+      "email": "rishabh@gmail.com",
+      "password": "admin",
+      "id": 3
+    },
+    {
+      "name": "Abhishek",
+      "email": "abc@gmail.com",
+      "password": "admin",
+      "id": 4
+    },
+    {
+      "name": "Sachin",
+      "email": "sachin@gmail.com",
+      "password": "admin",
+      "id": 5
+    }
+  ],
+  "tasks": []
 }

@@ -18,3 +18,6 @@ body{
 .text-primary{
     color: #131823 !important; 
 }
+.cursor-pointer{
+    cursor: pointer;
+}
