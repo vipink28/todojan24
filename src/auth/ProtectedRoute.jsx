@@ -1,21 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function ProtectedRoute({ children }) {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    console.log(isLoggedIn);
+    const navigate = useNavigate();
 
     const getUser = async (email) => {
         const response = await fetch(`http://localhost:5000/users?email=${email}`, { method: "GET" });
         if (response.ok) {
             const userData = await response.json();
             if (userData.length > 0) {
-                debugger
                 setIsLoggedIn(true);
             } else {
-                debugger
                 setIsLoggedIn(false);
                 localStorage.removeItem('todouser');
+                navigate('/');
             }
         } else {
             console.log('something went wrong');
@@ -27,11 +26,13 @@ function ProtectedRoute({ children }) {
         if (localData) {
             let localUser = JSON.parse(localData);
             getUser(localUser.email);
+        } else {
+            navigate('/')
         }
     }, [])
 
     return (
-        isLoggedIn ? { children } : <p>Not logged in</p>
+        isLoggedIn ? children : null
     );
 }
 

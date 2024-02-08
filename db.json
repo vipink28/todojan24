@@ -31,5 +31,60 @@
       "id": 5
     }
   ],
-  "tasks": []
+  "tasks": [
+    {
+      "title": "Meeting",
+      "userId": 1,
+      "modified": "Fri Feb 02 2024 11:28:25 GMT+0530 (India Standard Time)",
+      "role": "user",
+      "description": "Meeting with client",
+      "duedate": "2024-02-22T15:34",
+      "id": 1
+    },
+    {
+      "title": "Grocery",
+      "userId": 1,
+      "modified": "Fri Feb 02 2024 11:30:47 GMT+0530 (India Standard Time)",
+      "role": "user",
+      "description": "Buy grocery for home",
+      "duedate": "2024-02-28T15:39",
+      "id": 2
+    },
+    {
+      "title": "Appointment",
+      "userId": 1,
+      "modified": "Fri Feb 02 2024 11:31:21 GMT+0530 (India Standard Time)",
+      "role": "user",
+      "description": "Appointment with doctor",
+      "duedate": "2024-02-27T20:44",
+      "id": 3
+    },
+    {
+      "title": "Meeting",
+      "userId": 1,
+      "modified": "Fri Feb 02 2024 11:31:50 GMT+0530 (India Standard Time)",
+      "role": "user",
+      "description": "Meeting with another client.",
+      "duedate": "2024-03-01T01:50",
+      "id": 4
+    },
+    {
+      "title": "Bill",
+      "userId": 1,
+      "modified": "Fri Feb 02 2024 11:32:58 GMT+0530 (India Standard Time)",
+      "role": "user",
+      "description": "Pay electricity bill",
+      "duedate": "2024-03-19T06:56",
+      "id": 5
+    },
+    {
+      "title": "Meeting",
+      "userId": 1,
+      "modified": "Wed Feb 07 2024 11:48:40 GMT+0530 (India Standard Time)",
+      "role": "user",
+      "description": "Meeting with a client ",
+      "duedate": "2024-02-22T16:53",
+      "id": 6
+    }
+  ]
 }
