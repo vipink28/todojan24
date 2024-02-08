@@ -29,9 +29,6 @@ export const TaskProvider = ({ children }) => {
         }
     }
 
-
-
-
     const getAllTasks = async (id) => {
         const response = await fetch(`http://localhost:5000/tasks?userId=${id}`, { method: "GET" });
         if (response.ok) {
@@ -43,6 +40,24 @@ export const TaskProvider = ({ children }) => {
             setLatestTask(latest);
         } else {
             console.log("something went wrong");
+        }
+    }
+
+    const updateTask = async (formData) => {
+        const config = {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        }
+
+        const response = await fetch(`http://localhost:5000/tasks/${formData.id}`, config);
+        if (response.status === 200) {
+            setMessage('Task Updated successfully');
+            getAllTasks(user.id);
+        } else {
+            setMessage('Something went wrong');
         }
     }
 
@@ -58,7 +73,8 @@ export const TaskProvider = ({ children }) => {
             createTask,
             allTasks,
             latestTask,
-            recentTasks
+            recentTasks,
+            updateTask
         }}>
             {children}
         </TaskContext.Provider>
