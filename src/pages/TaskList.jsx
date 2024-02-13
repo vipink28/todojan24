@@ -1,4 +1,4 @@
-import React, { useContext, useReducer } from 'react';
+import React, { useContext, useEffect, useReducer, useState } from 'react';
 import TaskContext from '../context/TaskContext';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -17,6 +17,21 @@ const reducer = (state, action) => {
 function TaskList(props) {
     const { allTasks } = useContext(TaskContext);
     const [state, dispatch] = useReducer(reducer, null);
+    const [taskArray, setTaskArray] = useState(null);
+
+    useEffect(() => {
+        if (allTasks) {
+            setTaskArray(allTasks);
+        }
+    }, [allTasks])
+
+    const handleSearch = (e) => {
+        let { value } = e.target;
+        let filteredArray = allTasks.filter((item) => {
+            return item.title.toLowerCase().includes(value.toLowerCase());
+        })
+        setTaskArray(filteredArray);
+    }
 
     return (
         <div className='container'>
@@ -27,6 +42,9 @@ function TaskList(props) {
                 </div>
 
                 <div className='py-3'>
+                    <div className='mb-2'>
+                        <input type="text" className='form-control' onChange={handleSearch} />
+                    </div>
                     <div className="row border border-white py-2">
                         <div className='col-lg-1'>Sr.No.</div>
                         <div className='col-lg-2'>Title</div>
@@ -35,9 +53,9 @@ function TaskList(props) {
                         <div className='col-lg-2'>Actions</div>
                     </div>
                     {
-                        allTasks ?
-                            allTasks.map((task) => (
-                                <div className="row border border-white py-2">
+                        taskArray ?
+                            taskArray.map((task) => (
+                                <div key={task.id} className="row border border-white py-2">
                                     <div className='col-lg-1'>{task.id}</div>
                                     <div className='col-lg-2'>{task.title}</div>
                                     <div className='col-lg-5'>{task.description}</div>

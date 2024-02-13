@@ -8,7 +8,7 @@ function TaskForm(props) {
         description: "",
         duedate: ""
     }
-    const { isUpdate, data, setIsUpdate, isPopup } = props;
+    const { isUpdate, data, setIsUpdate, isPopup, closeBtn } = props;
 
     const { createTask, updateTask } = useContext(TaskContext);
     const { message, setMessage, user } = useContext(AuthContext);
@@ -46,7 +46,7 @@ function TaskForm(props) {
         e.preventDefault();
         setFormData(init);
         if (isPopup) {
-
+            closeBtn.current.click();
         } else {
             setIsUpdate(false);
         }
